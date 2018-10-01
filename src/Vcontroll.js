@@ -19,11 +19,13 @@ class Vcontroll extends React.Component {
     handleMouseMove = e => {
         if (!this.state.mouseDown) {return;}
         let slider = document.querySelector(`.${this.props.slider}`);
-        // new left takes mouse position subtracts thumb offset then subtracts the sliders left position
+        window.addEventListener('mouseup', this.handleMouseUp)
+        // new left takes mouse position subtracts thumb offset then subtracts the sliders left position EX: clientx 60 - shift x 9 = 51 then slider is 40 from left so 51 - 40 = 11... this offsets thumb 11 from slider left
         console.log(e.clientX)
         console.log(this.state.shiftX)
         console.log(slider.getBoundingClientRect().left)
         let newLeft = e.clientX - this.state.shiftX - slider.getBoundingClientRect().left
+        //if statements set the shift to edges fo slider if mouse x exceeds borders of slider
         if (newLeft < 0){
             newLeft = 0;
             
@@ -38,6 +40,7 @@ class Vcontroll extends React.Component {
     }
     handleMouseUp = () => {
         this.setState({mouseDown: false})
+        window.removeEventListener('mouseup', this.handleMouseUp)
     }
     handleDrag = () => {return false; }
     render() {
