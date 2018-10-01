@@ -7,7 +7,9 @@ class Vcontroll extends React.Component {
         mouseDown: false,
 
     }
- 
+    componentDidMount() {
+        window.addEventListener('mousemove', this.handleMouseMove)
+    }
     handleMouseDown = e => {
         e.preventDefault()
         let thumb = document.querySelector(`.${this.props.thumb}`) 
@@ -58,8 +60,7 @@ class Vcontroll extends React.Component {
     handleDrag = () => {return false; }
     render() {
     return (
-        <div onMouseMove = {this.handleMouseMove} style = {{display: 'inline-block'}}
-            onMouseUp = {this.handleMouseUp}
+        <div  style = {{display: 'inline-block'}}
              >
            <div id = 'slider' className = {this.props.slider} onClick = {this.handleClick} >
            <div style = {{
