@@ -42,16 +42,35 @@ class Vcontroll extends React.Component {
         this.setState({mouseDown: false})
         window.removeEventListener('mouseup', this.handleMouseUp)
     }
+    handleClick = e => {
+
+        let slider = document.querySelector(`.${this.props.slider}`);
+        let position = e.clientX - 7 - slider.getBoundingClientRect().left;
+        if (position < 0) {
+            position = 0
+        }
+        if (position > 255) {
+            position = 255
+        }
+        document.querySelector(`.${this.props.thumb}`).style.left = position + 'px';
+        this.props.setPosition(position)
+    }
     handleDrag = () => {return false; }
     render() {
     return (
         <div onMouseMove = {this.handleMouseMove} style = {{display: 'inline-block'}}
-            onMouseUp = {this.handleMouseUp} >
-           <div id = 'slider' className = {this.props.slider} >
+            onMouseUp = {this.handleMouseUp}
+             >
+           <div id = 'slider' className = {this.props.slider} onClick = {this.handleClick} >
+           <div style = {{
+                            backgroundColor: this.props.color, 
+                            height: '100%', 
+                            width: this.props.value,
+                            borderRadius: 3}}>
               <div className = {this.props.thumb} 
                 onMouseDown = {this.handleMouseDown} 
                 onDragStart = {this.handleDrag}>
-
+                </div>
               </div>
             </div>
          </div>

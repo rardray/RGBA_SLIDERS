@@ -122,7 +122,7 @@ class ScaleController extends Component {
                         <div className = 'slider-scale'>
                             {scale}
                         </div>
-                        <div className = 'slider' >
+                        <div className = 'slider'  >
                             {slider}
                         </div>
                         <div className = 'slider-selected-scale'>

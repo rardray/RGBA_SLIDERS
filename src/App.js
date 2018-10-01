@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import ScaleController from './ScaleController';
 import Vcontroll  from './Vcontroll';
@@ -31,22 +30,37 @@ class App extends Component {
         <div style = {{display: 'inline-block', verticalAlign: 'middle'}}>
           <div className = 'Slider-container'>
             <span>Red</span>
-              <Vcontroll setPosition = {this.setR} thumb = 'thumb-r' slider = 'slider-r'/>
+              <Vcontroll 
+                  setPosition = {this.setR} 
+                  thumb = 'thumb-r' 
+                  slider = 'slider-r' 
+                  value = {this.state.r} 
+                  color = {`rgb(${this.state.r}, 0, 0)`}/>
               <span>{this.state.r}</span>
             </div><br/>
           <div className = 'Slider-container'>
             <span>Green</span>
-              <Vcontroll setPosition = {this.setG} thumb = 'thumb-g' slider = 'slider-g'/>
+              <Vcontroll 
+                  setPosition = {this.setG} 
+                  thumb = 'thumb-g' 
+                  slider = 'slider-g' 
+                  value = {this.state.g}
+                  color = {`rgb(0, ${this.state.g}, 0)`}/>
               <span>{this.state.g}</span>
             </div><br/>
           <div className = 'Slider-container'>
             <span>Blue</span>
-              <Vcontroll setPosition = {this.setB} thumb = 'thumb-b' slider = 'slider-b'/>
+              <Vcontroll 
+                  setPosition = {this.setB} 
+                  thumb = 'thumb-b' 
+                  slider = 'slider-b' 
+                  value = {this.state.b + 4}
+                  color = {`rgb(0, 0, ${this.state.b})`}/>
                 <span>{this.state.b}</span>
             </div><br/>
           <div className = 'Slider-container'>
             <span>Alpha</span>
-              <Vcontroll setPosition = {this.setA} thumb = 'thumb-a' slider = 'slider-a' />
+              <Vcontroll setPosition = {this.setA} thumb = 'thumb-a' slider = 'slider-a' value = {Math.floor(this.state.a * 100) * 2.55 + 4} color = {`rgba(0,0,0,` + this.state.a + ')'}/>
                 <span>{Math.floor(this.state.a * 100)}%</span>
             </div>
             </div>
