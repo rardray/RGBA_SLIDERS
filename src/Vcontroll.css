@@ -1,0 +1,78 @@
+.slider-r {
+    border-radius: 5px;
+    background: #E0E0E0;
+    background: linear-gradient(left top, #E0E0E0, #EEEEEE);
+    width: 270px;
+    height: 5px;
+    margin: 5px;
+  }
+  
+  .thumb-r {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: relative;
+    left: 0px;
+    top: -5px;
+    background: red;
+    cursor: pointer;
+  }
+
+  .slider-g {
+    border-radius: 5px;
+    background: #E0E0E0;
+    background: linear-gradient(left top, #E0E0E0, #EEEEEE);
+    width: 270px;
+    height: 5px;
+    margin: 5px;
+  }
+  
+  .thumb-g {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: relative;
+    left: 10px;
+    top: -5px;
+    background: green;
+    cursor: pointer;
+  }
+
+  .slider-b {
+    border-radius: 5px;
+    background: #E0E0E0;
+    background: linear-gradient(left top, #E0E0E0, #EEEEEE);
+    width: 270px;
+    height: 5px;
+    margin: 5px;
+  }
+  
+  .thumb-b {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: relative;
+    left: 10px;
+    top: -5px;
+    background: blue;
+    cursor: pointer;
+  }
+  .slider-a {
+    border-radius: 5px;
+    background: #E0E0E0;
+    background: linear-gradient(left top, #E0E0E0, #EEEEEE);
+    width: 270px;
+    height: 5px;
+    margin: 5px;
+  }
+  
+  .thumb-a {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: relative;
+    left: 255px;
+    top: -5px;
+    background:black;
+    cursor: pointer;
+  }
