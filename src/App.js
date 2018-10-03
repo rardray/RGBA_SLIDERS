@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import './App.css';
 import Vcontroll from './Vcontroll';
 import Box from './Box';
+import VolumeIndicator from './Volume-indicator';
 
 class App extends Component {
   state = {
     r: 0,
     g: 0,
     b: 0,
-    a: 1
+    a: 1,
+    volume: 0,
+    toggleMenu: false
   };
   setR = value => {
     this.setState({ r: value });
@@ -23,6 +26,15 @@ class App extends Component {
     const newValue = value * 0.00392157;
     this.setState({ a: newValue });
   };
+  setVolume = value => {
+    const newValue = value * 0.00392157;
+    this.setState({ volume: newValue });
+  };
+  showMenu = e => {
+    e.preventDefault();
+    this.setState({ toggleMenu: !this.state.toggleMenu });
+  };
+
   render() {
     return (
       <div className="App">
@@ -73,6 +85,28 @@ class App extends Component {
               color={`rgba(0,0,0,` + this.state.a + ')'}
             />
             <span>{Math.floor(this.state.a * 100)}%</span>
+          </div>
+          <br />
+          <br />
+          <br /> <br />
+          <div style={{ display: 'inline-block' }}>
+            <VolumeIndicator volume={this.state.volume} />
+            <span>{Math.floor(this.state.volume * 100)}%</span>
+            <div className="expanding-box" onClick={this.showMenu}>
+              <div
+                className={
+                  this.state.toggleMenu ? 'show-control' : 'hidden-control'
+                }
+              >
+                <Vcontroll
+                  setPosition={this.setVolume}
+                  thumb="thumb-v"
+                  slider="slider-v"
+                  value={Math.floor(this.state.volume * 100) * 2.55 + 4}
+                  color={'darkred'}
+                />
+              </div>
+            </div>
           </div>
         </div>
         <Box

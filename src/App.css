@@ -2,7 +2,6 @@
   text-align: left;
 }
 
-
 .App-header {
   background-color: #222;
   height: 150px;
@@ -29,3 +28,120 @@ span {
   width: 30px;
 }
 
+.expanding-box {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: red;
+  cursor: pointer;
+  text-align: left;
+  display: inline-block;
+}
+.expanding-box:hover {
+  background-color: darkred;
+  height: 20px;
+  width: 20px;
+}
+.hidden-control {
+  padding-top: 5px;
+  visibility: hidden;
+  position: relative;
+  display: inline-block;
+  left: 18px;
+  vertical-align: middle;
+}
+.show-control {
+  overflow: hidden;
+  border-radius: 4px;
+  padding-top: 5px;
+  visibility: show;
+  position: relative;
+  display: inline-block;
+  left: 20px;
+  vertical-align: middle;
+  background: darkgrey;
+  animation-name: expand;
+  animation-direction: right;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+}
+
+@keyframes expand {
+  from {
+    width: 0px;
+    opacity: 0;
+  }
+  to {
+    width: 256px;
+    opacity: 1;
+  }
+}
+.volume-bar {
+  width: 6px;
+  display: inline-block;
+  margin: 2px;
+  vertical-align: bottom;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+#one {
+  height: 10px;
+  background-color: black;
+}
+
+#one-active {
+  height: 10px;
+  background-color: lightgrey;
+  animation-name: volume;
+  animation-direction: right;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+}
+
+#two {
+  height: 13px;
+  background-color: black;
+}
+#two-active {
+  height: 13px;
+  background-color: lightgrey;
+  animation-name: volume;
+  animation-direction: right;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+}
+#three {
+  height: 16px;
+  background-color: black;
+}
+#three-active {
+  height: 16px;
+  background-color: lightgrey;
+  animation-name: volume;
+  animation-direction: right;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+}
+
+#four {
+  height: 19px;
+  background-color: black;
+}
+#four-active {
+  height: 19px;
+  background-color: lightgrey;
+  animation-name: volume;
+  animation-direction: right;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+}
+
+@keyframes volume {
+  from {
+    background: black;
+  }
+  to {
+    background: lightgrey;
+  }
+}

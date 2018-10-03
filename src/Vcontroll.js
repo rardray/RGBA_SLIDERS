@@ -12,7 +12,8 @@ class Vcontroll extends React.Component {
   handleMouseDown = e => {
     e.preventDefault();
     let thumb = document.querySelector(`.${this.props.thumb}`);
-    //event client x is mouse position  : calculation takes mouse position on click and subtracts it from thumb left position (boundingClientRect left)
+    //event client x is mouse position  : calculation takes mouse position on click and subtracts it from thumb left position
+    //(boundingClientRect left)
     this.setState(
       {
         shiftX: e.clientX - thumb.getBoundingClientRect().left,
@@ -27,7 +28,8 @@ class Vcontroll extends React.Component {
     }
     let slider = document.querySelector(`.${this.props.slider}`);
     window.addEventListener('mouseup', this.handleMouseUp);
-    // new left takes mouse position subtracts thumb offset then subtracts the sliders left position EX: clientx 60 - shift x 9 = 51 then slider is 40 from left so 51 - 40 = 11... this offsets thumb 11 from slider left
+    // new left takes mouse position subtracts thumb offset then subtracts the sliders left position
+    //EX: clientx 60 - shift x 9 = 51 then slider is 40 from left so 51 - 40 = 11... this offsets thumb 11 from slider left
 
     let newLeft =
       e.clientX - this.state.shiftX - slider.getBoundingClientRect().left;
