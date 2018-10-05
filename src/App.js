@@ -32,9 +32,31 @@ class App extends Component {
   };
   showMenu = e => {
     e.preventDefault();
-    this.setState({ toggleMenu: !this.state.toggleMenu });
+    setTimeout(() => {
+      this.setState({ toggleMenu: !this.state.toggleMenu });
+    }, 300);
   };
-
+  volumeClick = e => {
+    const setVolume = volume => {
+      let newPos = 260 * volume - 7;
+      let thumb = document.querySelector('.thumb-v');
+      thumb.style.left = newPos + 'px';
+      console.log(newPos);
+      this.setState({ volume: volume });
+    };
+    if (e.target.id === 'one' || e.target.id === 'one-active') {
+      setVolume(0.25);
+    }
+    if (e.target.id === 'two' || e.target.id === 'two-active') {
+      setVolume(0.5);
+    }
+    if (e.target.id === 'three' || e.target.id === 'three-active') {
+      setVolume(0.75);
+    }
+    if (e.target.id === 'four' || e.target.id === 'four-active') {
+      setVolume(1);
+    }
+  };
   render() {
     return (
       <div className="App">
@@ -90,7 +112,10 @@ class App extends Component {
           <br />
           <br /> <br />
           <div style={{ display: 'inline-block' }}>
-            <VolumeIndicator volume={this.state.volume} />
+            <VolumeIndicator
+              handleClick={this.volumeClick}
+              volume={this.state.volume}
+            />
             <span>{Math.floor(this.state.volume * 100)}%</span>
             <div className="expanding-box" onClick={this.showMenu}>
               <div

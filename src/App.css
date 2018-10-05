@@ -31,37 +31,39 @@ span {
 .expanding-box {
   height: 20px;
   width: 20px;
-  border-radius: 50%;
-  background-color: red;
+  border-radius: 6px;
+  border-color: black;
+  background-color: darkslategray;
   cursor: pointer;
   text-align: left;
   display: inline-block;
+  z-index: 1;
 }
 .expanding-box:hover {
   background-color: darkred;
-  height: 20px;
-  width: 20px;
 }
 .hidden-control {
   padding-top: 5px;
-  visibility: hidden;
   position: relative;
-  display: inline-block;
-  left: 18px;
+  visibility: hidden;
+  left: 20px;
   vertical-align: middle;
+  display: inline-block;
+  z-index: 1;
 }
 .show-control {
+  z-index: 1;
   overflow: hidden;
   border-radius: 4px;
   padding-top: 5px;
-  visibility: show;
+  visibility: visible;
   position: relative;
   display: inline-block;
   left: 20px;
   vertical-align: middle;
+  box-shadow: 3px 3px 12px black;
   background: darkgrey;
   animation-name: expand;
-  animation-direction: right;
   animation-duration: 0.3s;
   animation-iteration-count: 1;
 }

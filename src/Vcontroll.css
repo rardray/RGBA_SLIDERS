@@ -80,6 +80,7 @@
   border-radius: 5px;
   background: #e0e0e0;
   background: linear-gradient(left top, #e0e0e0, #eeeeee);
+  box-shadow: inset 1px 1px 8px black;
   width: 270px;
   height: 5px;
   margin: 5px;
@@ -94,6 +95,7 @@
   top: -5px;
   background: white;
   cursor: pointer;
+  box-shadow: 2px 2px 8px black;
 }
 #sliders {
   border-radius: 5px;
