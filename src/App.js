@@ -3,6 +3,7 @@ import './App.css';
 import Vcontroll from './Vcontroll';
 import Box from './Box';
 import VolumeIndicator from './Volume-indicator';
+import $ from 'jquery';
 
 class App extends Component {
   state = {
@@ -55,6 +56,13 @@ class App extends Component {
     }
     if (e.target.id === 'four' || e.target.id === 'four-active') {
       setVolume(1);
+    }
+  };
+
+  cancelBar = e => {
+    e.preventDefault();
+    if (this.state.toggleMenu) {
+      this.setState({ toggleMenu: !this.state.toggleMenu });
     }
   };
   render() {
@@ -145,6 +153,10 @@ class App extends Component {
         <Box r={0} g={this.state.g} b={0} a={1} height={100} />
         <Box r={0} g={0} b={this.state.b} a={1} height={100} />
         <Box r={0} g={0} b={0} a={this.state.a} height={100} />
+        <div
+          style={{ height: $(window).height(), width: $(window).width() }}
+          onClick={this.cancelBar}
+        />
       </div>
     );
   }

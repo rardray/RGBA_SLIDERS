@@ -4,18 +4,19 @@
   "private": true,
   "dependencies": {
     "husky": "^1.1.0",
+    "jquery": "^3.3.1",
     "lint-staged": "^7.3.0",
     "prettier": "^1.14.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-scripts": "1.1.5"
   },
-   "lint-staged": {
-       "src/**/*.{js,jsx,json,css}": [
-         "prettier --single-quote --write",
-         "git add"
-       ]
-     },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  },
   "scripts": {
     "start": "react-scripts start",
     "precommit": "lint-staged",
