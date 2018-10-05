@@ -127,6 +127,9 @@ class App extends Component {
             <span>{Math.floor(this.state.volume * 100)}%</span>
             <div className="expanding-box" onClick={this.showMenu}>
               <div
+                className={this.state.toggleMenu ? 'arrow-expanded' : 'arrow'}
+              />
+              <div
                 className={
                   this.state.toggleMenu ? 'show-control' : 'hidden-control'
                 }

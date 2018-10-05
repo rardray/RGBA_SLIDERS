@@ -31,22 +31,22 @@ span {
 .expanding-box {
   height: 20px;
   width: 20px;
-  border-radius: 6px;
-  border-color: black;
-  background-color: darkslategray;
+  border-radius: 50%;
   cursor: pointer;
   text-align: left;
   display: inline-block;
   z-index: 1;
+  position: relative;
+  vertical-align: middle;
 }
 .expanding-box:hover {
-  background-color: darkred;
+  background-color: lightgray;
 }
 .hidden-control {
   padding-top: 5px;
   position: relative;
   visibility: hidden;
-  left: 20px;
+  left: 40px;
   vertical-align: middle;
   display: inline-block;
   z-index: 1;
@@ -59,7 +59,7 @@ span {
   visibility: visible;
   position: relative;
   display: inline-block;
-  left: 20px;
+  left: 30px;
   vertical-align: middle;
   box-shadow: 3px 3px 12px black;
   background: darkgrey;
@@ -145,5 +145,50 @@ span {
   }
   to {
     background: lightgrey;
+  }
+}
+.arrow {
+  background: url('./arrow-in-circle-point-to-up.svg');
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  transform: rotate(90deg);
+  position: relative;
+  vertical-align: middle;
+  animation-name: button-close;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+}
+.arrow-expanded {
+  background: url('./arrow-in-circle-point-to-up.svg');
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  transform: rotate(270deg);
+  position: relative;
+  vertical-align: middle;
+  animation-name: button;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+}
+@keyframes button {
+  from {
+    transform: rotate(90deg);
+  }
+  to {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes button-close {
+  from {
+    transform: rotate(270deg);
+  }
+  to {
+    transform: rotate(90deg);
   }
 }
