@@ -7,7 +7,11 @@ class Vcontroll extends React.Component {
     mouseDown: false
   };
   componentDidMount() {
+    let storage = localStorage.getItem(`${this.props.le}`);
     let thumb = document.querySelector(`.${this.props.thumb}`);
+    if (!storage) {
+      return;
+    }
     thumb.style.left = localStorage.getItem(this.props.ls) + 'px';
     console.log(thumb.style.left);
     window.addEventListener('mousemove', this.handleMouseMove);
