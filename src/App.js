@@ -15,6 +15,10 @@ class App extends Component {
     toggleMenu: false
   };
   componentDidMount() {
+    let storage = localStorage.getItem('settings');
+    if (!storage) {
+      return;
+    }
     this.setState(prevState => {
       return (prevState = JSON.parse(localStorage.getItem('settings')));
     });
