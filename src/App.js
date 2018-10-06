@@ -15,21 +15,9 @@ class App extends Component {
     toggleMenu: false
   };
   componentDidMount() {
-    this.setState(JSON.parse((this.state = localStorage.getItem('settings'))));
-    document.querySelector('.thumb-v').style.left =
-      localStorage.getItem('volume') + 'px';
-    document.querySelector('.thumb-r').style.left =
-      localStorage.getItem('r') + 'px';
-    document.querySelector('.thumb-g').style.left =
-      localStorage.getItem('g') + 'px';
-    document.querySelector('.thumb-b').style.left =
-      localStorage.getItem('b') + 'px';
-    document.querySelector('.thumb-a').style.left =
-      localStorage.getItem('a') + 'px';
-    console.log(
-      (document.querySelector('.thumb-v').style.left =
-        localStorage.getItem('volume') + 'px')
-    );
+    this.setState(prevState => {
+      return (prevState = JSON.parse(localStorage.getItem('settings')));
+    });
   }
   setR = value => {
     this.setState({ r: value });
@@ -125,6 +113,7 @@ class App extends Component {
               slider="slider-r"
               value={this.state.r}
               color={`rgb(${this.state.r}, 0, 0)`}
+              ls="r"
             />
             <span>{this.state.r}</span>
           </div>
@@ -137,6 +126,7 @@ class App extends Component {
               slider="slider-g"
               value={this.state.g}
               color={`rgb(0, ${this.state.g}, 0)`}
+              ls="g"
             />
             <span>{this.state.g}</span>
           </div>
@@ -149,6 +139,7 @@ class App extends Component {
               slider="slider-b"
               value={this.state.b + 4}
               color={`rgb(0, 0, ${this.state.b})`}
+              ls="b"
             />
             <span>{this.state.b}</span>
           </div>
@@ -161,6 +152,7 @@ class App extends Component {
               slider="slider-a"
               value={Math.floor(this.state.a * 100) * 2.55 + 4}
               color={`rgba(0,0,0,` + this.state.a + ')'}
+              ls="a"
             />
             <span>{Math.floor(this.state.a * 100)}%</span>
           </div>
@@ -188,6 +180,7 @@ class App extends Component {
                   slider="slider-v"
                   value={Math.floor(this.state.volume * 100) * 2.55 + 4}
                   color={'darkred'}
+                  ls="volume"
                 />
               </div>
             </div>
