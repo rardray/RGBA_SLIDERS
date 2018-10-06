@@ -14,6 +14,23 @@ class App extends Component {
     volume: 0,
     toggleMenu: false
   };
+  componentDidMount() {
+    this.setState(JSON.parse((this.state = localStorage.getItem('settings'))));
+    document.querySelector('.thumb-v').style.left =
+      localStorage.getItem('volume') + 'px';
+    document.querySelector('.thumb-r').style.left =
+      localStorage.getItem('r') + 'px';
+    document.querySelector('.thumb-g').style.left =
+      localStorage.getItem('g') + 'px';
+    document.querySelector('.thumb-b').style.left =
+      localStorage.getItem('b') + 'px';
+    document.querySelector('.thumb-a').style.left =
+      localStorage.getItem('a') + 'px';
+    console.log(
+      (document.querySelector('.thumb-v').style.left =
+        localStorage.getItem('volume') + 'px')
+    );
+  }
   setR = value => {
     this.setState({ r: value });
   };
@@ -39,10 +56,13 @@ class App extends Component {
   };
   volumeClick = e => {
     const setVolume = volume => {
-      let newPos = 260 * volume - 7;
       let thumb = document.querySelector('.thumb-v');
+      let newPos =
+        (document.querySelector('.slider-v').getBoundingClientRect().width -
+          thumb.getBoundingClientRect().width) *
+        volume;
+
       thumb.style.left = newPos + 'px';
-      console.log(newPos);
       this.setState({ volume: volume });
     };
     if (e.target.id === 'one' || e.target.id === 'one-active') {
@@ -65,6 +85,34 @@ class App extends Component {
       this.setState({ toggleMenu: !this.state.toggleMenu });
     }
   };
+  componentDidUpdate() {
+    localStorage.setItem('settings', JSON.stringify(this.state));
+    localStorage.setItem(
+      'volume',
+      document.querySelector('.thumb-v').getBoundingClientRect().left -
+        document.querySelector('.slider-v').getBoundingClientRect().left
+    );
+    localStorage.setItem(
+      'r',
+      document.querySelector('.thumb-r').getBoundingClientRect().left -
+        document.querySelector('.slider-r').getBoundingClientRect().left
+    );
+    localStorage.setItem(
+      'g',
+      document.querySelector('.thumb-g').getBoundingClientRect().left -
+        document.querySelector('.slider-g').getBoundingClientRect().left
+    );
+    localStorage.setItem(
+      'b',
+      document.querySelector('.thumb-b').getBoundingClientRect().left -
+        document.querySelector('.slider-b').getBoundingClientRect().left
+    );
+    localStorage.setItem(
+      'a',
+      document.querySelector('.thumb-a').getBoundingClientRect().left -
+        document.querySelector('.slider-a').getBoundingClientRect().left
+    );
+  }
   render() {
     return (
       <div className="App">
