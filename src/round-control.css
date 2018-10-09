@@ -1,0 +1,47 @@
+.round-control {
+  height: 50px;
+  width: 50px;
+  transform: rotate(0deg);
+  background: radial-gradient(center, rgb(68, 68, 68), black);
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  border: 2px solid darkred;
+}
+
+.round-pointer {
+  width: 10px;
+  background: white;
+  height: 10px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 31px;
+  margin-left: 10px;
+  transform: rotate(0deg);
+  border-radius: 50%;
+  box-shadow: inset 1px 1px 3px;
+}
+
+.round-ring {
+  width: 55px;
+  border-radius: 50%;
+  height: 100%;
+  padding: 6px;
+  background: lightgrey;
+  box-shadow: inset 2px 2px 8px black;
+}
+
+.round-container {
+  box-shadow: 6px 6px 6px black;
+  border-radius: 50%;
+  background: darkred;
+}
+
+.outer-ring {
+  padding: 8px;
+  width: 68px;
+  border-radius: 50%;
+  background: linear-gradient(left, lightgrey, slategrey);
+  box-shadow: 3px 3px 6px black;
+}
