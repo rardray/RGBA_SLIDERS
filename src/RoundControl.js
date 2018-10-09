@@ -16,8 +16,8 @@ class RoundControl extends React.Component {
       return;
     }
     window.addEventListener('mouseup', this.handleMouseUp);
-    let knob = document.querySelector('.round-control');
-    let pointer = document.querySelector('.round-pointer');
+    let knob = document.querySelector(`.${this.props.control}`);
+    let pointer = document.querySelector(`.${this.props.pointer}`);
     let knobValue = -e.clientY - this.state.setX + this.state.knobPosition;
     if (knobValue > 270) {
       knobValue = 270;
@@ -27,7 +27,7 @@ class RoundControl extends React.Component {
     }
     knob.style.transform = `rotate(${knobValue}deg)`;
     pointer.style.transform = `rotate(-${knobValue}deg)`;
-    this.setState({ positionHold: knobValue });
+    this.props.roundControl(knobValue);
     console.log(knobValue);
   };
   handleMouseDown = e => {
@@ -37,7 +37,7 @@ class RoundControl extends React.Component {
   };
   handleMouseUp = () => {
     const { positionHold } = this.state;
-    this.setState({ mouseDown: false, knobPosition: positionHold });
+    this.setState({ mouseDown: false, knobPosition: this.props.roundKnob });
   };
   render() {
     return (
@@ -45,8 +45,11 @@ class RoundControl extends React.Component {
         <div className="outer-ring">
           <div className="round-ring">
             <div className="round-container">
-              <div className="round-control" onMouseDown={this.handleMouseDown}>
-                <div className="round-pointer" />
+              <div
+                className={this.props.control}
+                onMouseDown={this.handleMouseDown}
+              >
+                <div className={this.props.pointer} />
               </div>
             </div>
           </div>

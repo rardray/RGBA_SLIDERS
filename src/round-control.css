@@ -1,4 +1,4 @@
-.round-control {
+.round-control80 {
   height: 50px;
   width: 50px;
   transform: rotate(0deg);
@@ -8,8 +8,30 @@
   position: relative;
   border: 2px solid darkred;
 }
-
-.round-pointer {
+.round-control100 {
+  height: 50px;
+  width: 50px;
+  transform: rotate(0deg);
+  background: radial-gradient(center, rgb(68, 68, 68), black);
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  border: 2px solid darkred;
+}
+.round-pointer80 {
+  width: 10px;
+  background: white;
+  height: 10px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 31px;
+  margin-left: 10px;
+  transform: rotate(0deg);
+  border-radius: 50%;
+  box-shadow: inset 1px 1px 3px;
+}
+.round-pointer100 {
   width: 10px;
   background: white;
   height: 10px;
@@ -28,7 +50,7 @@
   border-radius: 50%;
   height: 100%;
   padding: 6px;
-  background: lightgrey;
+  background: slategray;
   box-shadow: inset 2px 2px 8px black;
 }
 
@@ -44,4 +66,6 @@
   border-radius: 50%;
   background: linear-gradient(left, lightgrey, slategrey);
   box-shadow: 3px 3px 6px black;
+  display: inline-block;
+  position: relative;
 }

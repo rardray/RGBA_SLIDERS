@@ -12,6 +12,8 @@ class App extends Component {
     b: 0,
     a: 1,
     volume: 0,
+    roundKnob80: 0,
+    roundKnob100: 0,
     toggleMenu: false
   };
   componentDidMount() {
@@ -105,6 +107,12 @@ class App extends Component {
       document.querySelector('.thumb-a').getBoundingClientRect().left -
         document.querySelector('.slider-a').getBoundingClientRect().left
     );
+  };
+  roundControl80 = value => {
+    this.setState({ roundKnob80: value });
+  };
+  roundControl100 = value => {
+    this.setState({ roundKnob100: value });
   };
   render() {
     return (
@@ -203,7 +211,23 @@ class App extends Component {
         <Box r={0} g={0} b={this.state.b} a={1} height={100} />
         <Box r={0} g={0} b={0} a={this.state.a} height={100} />
         <button onClick={this.handleSave}>Save Settings</button>
-        <RoundControl />
+        <br />
+        <div style={{ display: 'inline-block', margin: 5 }}>
+          <RoundControl
+            roundControl={this.roundControl80}
+            roundKnob={this.state.roundKnob80}
+            control="round-control80"
+            pointer="round-pointer80"
+          />
+        </div>
+        <div style={{ display: 'inline-block', margin: 5 }}>
+          <RoundControl
+            roundControl={this.roundControl100}
+            roundKnob={this.state.roundKnob100}
+            control="round-control100"
+            pointer="round-pointer100"
+          />
+        </div>
         <div
           style={{ height: $(window).height(), width: $(window).width() }}
           onClick={this.cancelBar}
