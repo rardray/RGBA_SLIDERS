@@ -1,5 +1,6 @@
 .App {
   text-align: left;
+  margin: 6px;
 }
 
 .App-header {
@@ -28,38 +29,39 @@ span {
   width: 30px;
 }
 
-.expanding-box {
+#expanding-box {
   height: 20px;
   width: 20px;
   border-radius: 50%;
   cursor: pointer;
   text-align: left;
   display: inline-block;
-  z-index: 1;
+  z-index: 4;
   position: relative;
   vertical-align: middle;
 }
-.expanding-box:hover {
+#expanding-box:hover {
   background-color: lightgray;
 }
-.hidden-control {
+#expanding-box .hidden-control {
   padding-top: 5px;
   position: relative;
   visibility: hidden;
   left: 40px;
   vertical-align: middle;
   display: inline-block;
-  z-index: 1;
+  z-index: 4;
 }
-.show-control {
-  z-index: 1;
+#expanding-box .show-control {
+  z-index: 4;
   overflow: hidden;
   border-radius: 4px;
   padding-top: 5px;
   visibility: visible;
-  position: relative;
+  position: absolute;
+  left: 20px;
+  top: 0px;
   display: inline-block;
-  left: 30px;
   vertical-align: middle;
   box-shadow: 3px 3px 12px black;
   background: darkgrey;

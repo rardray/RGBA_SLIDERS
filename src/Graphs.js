@@ -1,5 +1,5 @@
 import React from 'react';
-import './round-control.css';
+import './StyleSheets/round-control.css';
 
 const Graphs = props => {
   const gradient = () => {
@@ -16,10 +16,16 @@ const Graphs = props => {
     height: props.height,
     background: `linear-gradient(to top, rgb(10 255 0), rgb(${gradient()} ${reduceRed()} 0 ))`
   };
+  let items = [];
+  for (let i = 0; i < Math.round(270 / 45); i++) {
+    items[i] = <div className="grid-blocks" />;
+  }
   return (
     <div>
       <div id="top-grid" />
       <div id="parent">
+        <div className="grid-blocks-back" />
+        <div className="grid-blocks-container">{items}</div>
         <div className="graphs" style={style} />
       </div>
     </div>

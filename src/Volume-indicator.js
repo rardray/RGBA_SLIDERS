@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './StyleSheets/App.css';
 
 const VolumeIndicator = props => {
   return (

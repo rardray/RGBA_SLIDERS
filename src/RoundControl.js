@@ -1,12 +1,11 @@
 import React from 'react';
-import './round-control.css';
+import './StyleSheets/round-control.css';
 
 class RoundControl extends React.Component {
   state = {
     setX: 0,
     mouseDown: false,
-    knobPosition: 0,
-    positionHold: 0
+    knobPosition: 0
   };
   componentDidMount() {
     window.addEventListener('mousemove', this.handleMouseMove);
@@ -36,7 +35,6 @@ class RoundControl extends React.Component {
     console.log(this.state);
   };
   handleMouseUp = () => {
-    const { positionHold } = this.state;
     this.setState({ mouseDown: false, knobPosition: this.props.roundKnob });
   };
   render() {

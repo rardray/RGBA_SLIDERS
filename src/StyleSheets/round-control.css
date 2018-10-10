@@ -129,11 +129,37 @@
 #parent .graphs {
   width: 80px;
   position: absolute;
-  background: red;
   bottom: 0px;
   left: 4px;
   vertical-align: bottom;
   z-index: 1;
+}
+
+#parent .grid-blocks-container {
+  position: absolute;
+  bottom: 0px;
+  left: 2px;
+  z-index: 2;
+  height: 270px;
+  width: 90px;
+  overflow: hidden;
+}
+#parent .grid-blocks-back {
+  position: absolute;
+  bottom: 0px;
+  left: 2px;
+  z-index: 0;
+  height: 270px;
+  width: 84px;
+  overflow: hidden;
+  background: linear-gradient(to top, black, grey);
+}
+.grid-blocks {
+  border: 2px solid white;
+  border-bottom: none;
+  height: 45px;
+  width: 80px;
+  box-shadow: inset 2px 2px 15px;
 }
 
 #top-grid {

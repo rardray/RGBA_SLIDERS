@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './App.css';
+import './StyleSheets/App.css';
 import Vcontroll from './Vcontroll';
 import Box from './Box';
 import VolumeIndicator from './Volume-indicator';
 import $ from 'jquery';
 import RoundControl from './RoundControl';
 import Graphs from './Graphs';
-import './round-control.css';
+import './StyleSheets/round-control.css';
 class App extends Component {
   state = {
     r: 0,
@@ -188,7 +188,7 @@ class App extends Component {
               volume={this.state.volume}
             />
             <span>{Math.floor(this.state.volume * 100)}%</span>
-            <div className="expanding-box" onClick={this.showMenu}>
+            <div id="expanding-box" onClick={this.showMenu}>
               <div
                 className={this.state.toggleMenu ? 'arrow-expanded' : 'arrow'}
               />

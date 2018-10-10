@@ -1,5 +1,5 @@
 import React from 'react';
-import './Vcontroll.css';
+import './StyleSheets/Vcontroll.css';
 
 class Vcontroll extends React.Component {
   state = {
