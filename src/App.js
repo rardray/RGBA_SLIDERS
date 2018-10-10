@@ -5,6 +5,7 @@ import Box from './Box';
 import VolumeIndicator from './Volume-indicator';
 import $ from 'jquery';
 import RoundControl from './RoundControl';
+import Graphs from './Graphs';
 class App extends Component {
   state = {
     r: 0,
@@ -14,6 +15,8 @@ class App extends Component {
     volume: 0,
     roundKnob80: 0,
     roundKnob100: 0,
+    roundKnob120: 0,
+    roundKnob200: 0,
     toggleMenu: false
   };
   componentDidMount() {
@@ -113,6 +116,12 @@ class App extends Component {
   };
   roundControl100 = value => {
     this.setState({ roundKnob100: value });
+  };
+  roundControl120 = value => {
+    this.setState({ roundKnob120: value });
+  };
+  roundControl200 = value => {
+    this.setState({ roundKnob200: value });
   };
   render() {
     return (
@@ -227,6 +236,85 @@ class App extends Component {
             control="round-control100"
             pointer="round-pointer100"
           />
+        </div>
+        <div style={{ display: 'inline-block', margin: 5 }}>
+          <RoundControl
+            roundControl={this.roundControl120}
+            roundKnob={this.state.roundKnob120}
+            control="round-control120"
+            pointer="round-pointer120"
+          />
+        </div>
+        <div style={{ display: 'inline-block', margin: 5 }}>
+          <RoundControl
+            roundControl={this.roundControl200}
+            roundKnob={this.state.roundKnob200}
+            control="round-control200"
+            pointer="round-pointer200"
+          />
+        </div>
+        <div style={{ display: 'inline-block', verticalAlign: 'bottom' }}>
+          <div
+            style={{
+              height: 90,
+              width: 50,
+              borderWidth: 1,
+              position: 'relative',
+              borderStyle: 'solid',
+              borderColor: 'lightgrey',
+              borderRight: 'none',
+              borderLeft: 'none',
+              borderBottom: 'none'
+            }}
+          />
+          <div
+            style={{
+              height: 180,
+              position: 'relative',
+              width: 50,
+              borderWidth: 1,
+              borderStyle: 'solid',
+              borderColor: 'lightgray',
+              borderLeft: 'none',
+              borderRight: 'none'
+            }}
+          />
+        </div>
+        <div
+          style={{
+            display: 'inline-block',
+            verticalAlign: 'bottom',
+            position: 'relative'
+          }}
+        >
+          <Graphs height={this.state.roundKnob80} />
+        </div>
+        <div
+          style={{
+            display: 'inline-block',
+            verticalAlign: 'bottom',
+            position: 'relative'
+          }}
+        >
+          <Graphs height={this.state.roundKnob100} />
+        </div>
+        <div
+          style={{
+            display: 'inline-block',
+            verticalAlign: 'bottom',
+            position: 'relative'
+          }}
+        >
+          <Graphs height={this.state.roundKnob120} />
+        </div>
+        <div
+          style={{
+            display: 'inline-block',
+            verticalAlign: 'bottom',
+            position: 'relative'
+          }}
+        >
+          <Graphs height={this.state.roundKnob200} />
         </div>
         <div
           style={{ height: $(window).height(), width: $(window).width() }}
