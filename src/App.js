@@ -6,6 +6,7 @@ import VolumeIndicator from './Volume-indicator';
 import $ from 'jquery';
 import RoundControl from './RoundControl';
 import Graphs from './Graphs';
+import './round-control.css';
 class App extends Component {
   state = {
     r: 0,
@@ -221,64 +222,13 @@ class App extends Component {
         <Box r={0} g={0} b={0} a={this.state.a} height={100} />
         <button onClick={this.handleSave}>Save Settings</button>
         <br />
-        <div style={{ display: 'inline-block', margin: 5 }}>
-          <RoundControl
-            roundControl={this.roundControl80}
-            roundKnob={this.state.roundKnob80}
-            control="round-control80"
-            pointer="round-pointer80"
-          />
-        </div>
-        <div style={{ display: 'inline-block', margin: 5 }}>
-          <RoundControl
-            roundControl={this.roundControl100}
-            roundKnob={this.state.roundKnob100}
-            control="round-control100"
-            pointer="round-pointer100"
-          />
-        </div>
-        <div style={{ display: 'inline-block', margin: 5 }}>
-          <RoundControl
-            roundControl={this.roundControl120}
-            roundKnob={this.state.roundKnob120}
-            control="round-control120"
-            pointer="round-pointer120"
-          />
-        </div>
-        <div style={{ display: 'inline-block', margin: 5 }}>
-          <RoundControl
-            roundControl={this.roundControl200}
-            roundKnob={this.state.roundKnob200}
-            control="round-control200"
-            pointer="round-pointer200"
-          />
-        </div>
         <div style={{ display: 'inline-block', verticalAlign: 'bottom' }}>
-          <div
-            style={{
-              height: 90,
-              width: 50,
-              borderWidth: 1,
-              position: 'relative',
-              borderStyle: 'solid',
-              borderColor: 'lightgrey',
-              borderRight: 'none',
-              borderLeft: 'none',
-              borderBottom: 'none'
-            }}
-          />
-          <div
-            style={{
-              height: 180,
-              position: 'relative',
-              width: 50,
-              borderWidth: 1,
-              borderStyle: 'solid',
-              borderColor: 'lightgray',
-              borderLeft: 'none',
-              borderRight: 'none'
-            }}
-          />
+          <div id="grid-label-container">
+            <p className="grid-child">+6db</p>
+          </div>
+          <div id="grid-label-bottom">
+            <p className="grid-child">0db</p>
+          </div>
         </div>
         <div
           style={{
@@ -315,6 +265,40 @@ class App extends Component {
           }}
         >
           <Graphs height={this.state.roundKnob200} />
+        </div>
+        <br />
+        <div style={{ display: 'inline-block', width: 45 }} />
+        <div style={{ display: 'inline-block', margin: 5 }}>
+          <RoundControl
+            roundControl={this.roundControl80}
+            roundKnob={this.state.roundKnob80}
+            control="round-control80"
+            pointer="round-pointer80"
+          />
+        </div>
+        <div style={{ display: 'inline-block', margin: 5 }}>
+          <RoundControl
+            roundControl={this.roundControl100}
+            roundKnob={this.state.roundKnob100}
+            control="round-control100"
+            pointer="round-pointer100"
+          />
+        </div>
+        <div style={{ display: 'inline-block', margin: 5 }}>
+          <RoundControl
+            roundControl={this.roundControl120}
+            roundKnob={this.state.roundKnob120}
+            control="round-control120"
+            pointer="round-pointer120"
+          />
+        </div>
+        <div style={{ display: 'inline-block', margin: 5 }}>
+          <RoundControl
+            roundControl={this.roundControl200}
+            roundKnob={this.state.roundKnob200}
+            control="round-control200"
+            pointer="round-pointer200"
+          />
         </div>
         <div
           style={{ height: $(window).height(), width: $(window).width() }}

@@ -119,7 +119,7 @@
 #parent {
   position: relative;
   height: 180px;
-  width: 50px;
+  width: 92px;
   border: 1px solid lightgrey;
   margin: 0;
   border-left: none;
@@ -127,7 +127,7 @@
 }
 
 #parent .graphs {
-  width: 40px;
+  width: 80px;
   position: absolute;
   background: red;
   bottom: 0px;
@@ -139,10 +139,47 @@
 #top-grid {
   position: relative;
   height: 90px;
-  width: 50px;
+  width: 92px;
   border: 1px solid lightgrey;
   border-bottom: none;
   border-left: none;
   border-right: none;
   margin: 0;
+}
+
+#grid-label-container {
+  height: 90px;
+  width: 50px;
+  border-width: 1px;
+  position: relative;
+  border-style: solid;
+  border-color: lightgrey;
+  border-right: none;
+  border-left: none;
+  border-bottom: none;
+}
+
+#grid-label-container .grid-child {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 0px;
+}
+
+#grid-label-bottom {
+  height: 180px;
+  position: relative;
+  width: 50px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: lightgray;
+  border-left: none;
+  border-right: none;
+}
+
+#grid-label-bottom .grid-child {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 0px;
 }
