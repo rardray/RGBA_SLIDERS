@@ -19,18 +19,21 @@ const Graphs = props => {
   let items = [];
   for (let i = 0; i < Math.round(270 / 45); i++) {
     items[i] = (
-      <div className="grid-blocks">
-        <div
-          style={{
-            width: '80%',
-            margin: 4,
-            height: 6,
-            background: 'white',
-            borderRadius: '50%',
-            opacity: 0.3,
-            boxShadow: '1px 1px 6px white'
-          }}
-        />
+      <div id="grid-blocks-inner">
+        <div className="grid-blocks">
+          <div
+            style={{
+              width: '40%',
+              margin: 6,
+              height: 6,
+              background: 'white',
+              borderRadius: '50%',
+              opacity: 0.3,
+              boxShadow: '1px 1px 6px white',
+              transform: 'rotate(-35deg)'
+            }}
+          />
+        </div>
       </div>
     );
   }

@@ -1,6 +1,6 @@
 .round-control80 {
-  height: 50px;
-  width: 50px;
+  height: 51px;
+  width: 51px;
   transform: rotate(0deg);
   background: radial-gradient(center, rgb(68, 68, 68), black);
   display: inline-block;
@@ -154,14 +154,28 @@
   overflow: hidden;
   background: linear-gradient(to top, black, grey);
 }
-.grid-blocks {
-  border: 2px solid white;
-  border-bottom: none;
-  height: 45px;
-  width: 80px;
+#grid-blocks-inner .grid-blocks {
+  border: 45px solid white;
+  object-fit: cover;
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%;
+  height: 42px;
+  left: -25px;
+  margin-top: -45px;
+  width: 42px;
   box-shadow: inset 2px 2px 15px;
 }
-
+#grid-blocks-inner {
+  text-align: center;
+  position: relative;
+  border: 2px solid white;
+  border-bottom: none;
+  height: 43px;
+  width: 80px;
+  overflow: hidden;
+  justify-content: center;
+}
 #top-grid {
   position: relative;
   height: 90px;
@@ -206,6 +220,13 @@
 #grid-label-bottom .grid-child {
   position: absolute;
   top: 0px;
+  left: 0px;
+  margin: 0px;
+}
+
+#grid-label-bottom .grid-child-bottom {
+  position: absolute;
+  bottom: 0px;
   left: 0px;
   margin: 0px;
 }

@@ -222,12 +222,13 @@ class App extends Component {
         <Box r={0} g={0} b={0} a={this.state.a} height={100} />
         <button onClick={this.handleSave}>Save Settings</button>
         <br />
-        <div style={{ display: 'inline-block', verticalAlign: 'bottom' }}>
+        <div style={{ display: 'inline-block', verticalAlign: 'top' }}>
           <div id="grid-label-container">
             <p className="grid-child">+6db</p>
           </div>
           <div id="grid-label-bottom">
             <p className="grid-child">0db</p>
+            <p className="grid-child-bottom">-20db</p>
           </div>
         </div>
         <div
