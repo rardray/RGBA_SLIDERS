@@ -46,8 +46,8 @@ const Graphs = props => {
         <div className="graphs" style={style} />
       </div>
       <div style={{ textAlign: 'center' }}>
-        <p>
-          {-20 + Math.round(props.height * 0.0962963)}
+        <p className="number-db">
+          {(-20 + props.height * 0.0962963).toFixed(2)}
           db
         </p>
       </div>
