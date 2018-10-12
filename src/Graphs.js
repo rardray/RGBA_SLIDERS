@@ -6,10 +6,10 @@ const Graphs = props => {
     return Math.round(props.height * 0.94444);
   };
   const reduceRed = () => {
-    if (props.height >= 180) {
+    if (props.height >= 207) {
       return Math.round(255 - props.height);
     } else {
-      return 255;
+      return Math.round(255 - props.height * 0.25);
     }
   };
   const style = {
@@ -46,7 +46,10 @@ const Graphs = props => {
         <div className="graphs" style={style} />
       </div>
       <div style={{ textAlign: 'center' }}>
-        <p>{Math.round(props.height * 0.47407407)}</p>
+        <p>
+          {-20 + Math.round(props.height * 0.0962963)}
+          db
+        </p>
       </div>
     </div>
   );

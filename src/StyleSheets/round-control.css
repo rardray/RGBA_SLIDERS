@@ -118,7 +118,7 @@
 
 #parent {
   position: relative;
-  height: 180px;
+  height: 207px;
   width: 92px;
   border: 1px solid lightgrey;
   margin: 0;
@@ -178,7 +178,7 @@
 }
 #top-grid {
   position: relative;
-  height: 90px;
+  height: 63px;
   width: 92px;
   border: 1px solid lightgrey;
   border-bottom: none;
@@ -188,7 +188,7 @@
 }
 
 #grid-label-container {
-  height: 90px;
+  height: 63px;
   width: 50px;
   border-width: 1px;
   position: relative;
@@ -207,7 +207,7 @@
 }
 
 #grid-label-bottom {
-  height: 180px;
+  height: 207px;
   position: relative;
   width: 50px;
   border-width: 1px;
