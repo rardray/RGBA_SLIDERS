@@ -122,13 +122,11 @@ class App extends Component {
 
   render() {
     const Vcontrol = [];
-    const rgbaSliders = {
-      r: this.state.r,
-      g: this.state.g,
-      b: this.state.b,
-      a: this.state.a
-    };
-    let keys = Object.keys(rgbaSliders);
+    const Kcontrol = [];
+    let knobKeys = Object.keys(this.state).filter(key =>
+      key.includes('roundKnob')
+    );
+    let keys = ['r', 'g', 'b', 'a'];
     const color = value => {
       if (value === 'r') {
         return `rgb(${this.state.r}, 0, 0)`;
@@ -165,6 +163,46 @@ class App extends Component {
         </div>
       );
     }
+    for (let i = 0; i < knobKeys.length; i++) {
+      Kcontrol[i] = (
+        <div
+          style={{
+            display: 'inline-block',
+            verticalAlign: 'bottom',
+            position: 'relative'
+          }}
+        >
+          <Graphs height={this.state[knobKeys[i]]} />
+        </div>
+      );
+    }
+    const knobStyles = [
+      'round-control80',
+      'round-control100',
+      'round-control120',
+      'round-control200'
+    ];
+    const pointerStyles = [
+      'round-pointer80',
+      'round-pointer100',
+      'round-pointer120',
+      'round-pointer200'
+    ];
+    const RKnobs = [];
+    for (let i = 0; i < knobKeys.length; i++) {
+      RKnobs[i] = (
+        <div style={{ display: 'inline-block', margin: 5 }}>
+          <RoundControl
+            roundControl={this.setValues}
+            roundKnob={this.state[knobKeys[i]]}
+            control={knobStyles[i]}
+            pointer={pointerStyles[i]}
+            l={`n${i + 1}`}
+            name={knobKeys[i]}
+          />
+        </div>
+      );
+    }
     return (
       <div className="App">
         <div style={{ display: 'inline-block', verticalAlign: 'middle' }}>
@@ -198,6 +236,7 @@ class App extends Component {
             </div>
           </div>
         </div>
+
         <Box
           r={this.state.r}
           g={this.state.g}
@@ -209,7 +248,7 @@ class App extends Component {
         <Box r={0} g={this.state.g} b={0} a={1} height={100} />
         <Box r={0} g={0} b={this.state.b} a={1} height={100} />
         <Box r={0} g={0} b={0} a={this.state.a} height={100} />
-        <button onClick={this.handleSave}>Save Settings</button>
+
         <br />
         <div style={{ display: 'inline-block', verticalAlign: 'top' }}>
           <div id="grid-label-container">
@@ -220,86 +259,21 @@ class App extends Component {
             <p className="grid-child-bottom">-20db</p>
           </div>
         </div>
-        <div
-          style={{
-            display: 'inline-block',
-            verticalAlign: 'bottom',
-            position: 'relative'
-          }}
-        >
-          <Graphs height={this.state.roundKnob80} />
-        </div>
-        <div
-          style={{
-            display: 'inline-block',
-            verticalAlign: 'bottom',
-            position: 'relative'
-          }}
-        >
-          <Graphs height={this.state.roundKnob100} />
-        </div>
-        <div
-          style={{
-            display: 'inline-block',
-            verticalAlign: 'bottom',
-            position: 'relative'
-          }}
-        >
-          <Graphs height={this.state.roundKnob120} />
-        </div>
-        <div
-          style={{
-            display: 'inline-block',
-            verticalAlign: 'bottom',
-            position: 'relative'
-          }}
-        >
-          <Graphs height={this.state.roundKnob200} />
-        </div>
+        {Kcontrol}
         <br />
         <div style={{ display: 'inline-block', width: 45 }} />
-        <div style={{ display: 'inline-block', margin: 5 }}>
-          <RoundControl
-            roundControl={this.setValues}
-            roundKnob={this.state.roundKnob80}
-            control="round-control80"
-            pointer="round-pointer80"
-            l="n1"
-            name="roundKnob80"
-          />
-        </div>
-        <div style={{ display: 'inline-block', margin: 5 }}>
-          <RoundControl
-            roundControl={this.setValues}
-            roundKnob={this.state.roundKnob100}
-            control="round-control100"
-            pointer="round-pointer100"
-            l="n2"
-            name="roundKnob100"
-          />
-        </div>
-        <div style={{ display: 'inline-block', margin: 5 }}>
-          <RoundControl
-            roundControl={this.setValues}
-            roundKnob={this.state.roundKnob120}
-            control="round-control120"
-            pointer="round-pointer120"
-            l="n3"
-            name="roundKnob120"
-          />
-        </div>
-        <div style={{ display: 'inline-block', margin: 5 }}>
-          <RoundControl
-            roundControl={this.setValues}
-            roundKnob={this.state.roundKnob200}
-            control="round-control200"
-            pointer="round-pointer200"
-            l="n4"
-            name="roundKnob200"
-          />
-        </div>
+        {RKnobs}
+        <br />
+        <button onClick={this.handleSave}>Save Settings</button>
         <div
-          style={{ height: $(window).height(), width: $(window).width() }}
+          style={{
+            height: $(window).height(),
+            width: $(window).width(),
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            zIndex: this.state.toggleMenu ? 2 : -1
+          }}
           onClick={this.cancelBar}
         />
       </div>
