@@ -67,7 +67,7 @@ class Vcontroll extends React.Component {
       position = 255;
     }
     document.querySelector(`.${this.props.thumb}`).style.left = position + 'px';
-    this.props.setPosition(position);
+    this.props.setPosition(position, this.props.ls);
   };
   handleDrag = () => {
     return false;
