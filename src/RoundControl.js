@@ -10,12 +10,13 @@ class RoundControl extends React.Component {
   componentDidMount() {
     let knobValue = JSON.parse(localStorage.getItem(this.props.l));
     let knob = document.querySelector(`.${this.props.control}`);
-    console.log(knob);
     let pointer = document.querySelector(`.${this.props.pointer}`);
+    if (knobValue) {
+      knob.style.transform = `rotate(${knobValue}deg)`;
+      pointer.style.transform = `rotate(-${knobValue}deg)`;
+      this.setState({ knobPosition: JSON.parse(knobValue) });
+    }
     window.addEventListener('mousemove', this.handleMouseMove);
-    knob.style.transform = `rotate(${knobValue}deg)`;
-    this.setState({ knobPosition: JSON.parse(knobValue) });
-    console.log((knob.style.transform = `rotate(${knobValue}deg)`));
   }
   handleMouseMove = e => {
     if (!this.state.mouseDown) {

@@ -101,13 +101,7 @@ class App extends Component {
     }
   };
   setSliderValues = value => {
-    const rgba = {
-      r: this.state.r,
-      g: this.state.g,
-      b: this.state.b,
-      a: this.state.a
-    };
-    const sliders = Object.keys(rgba);
+    const sliders = ['r', 'g', 'b', 'a'];
     for (let i = 0; i < sliders.length; i++) {
       localStorage.setItem(
         `${sliders[i]}`,
