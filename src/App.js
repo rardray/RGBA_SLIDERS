@@ -29,18 +29,13 @@ class App extends Component {
       return (prevState = JSON.parse(localStorage.getItem('settings')));
     });
   }
-  setR = value => {
-    this.setState({ r: value });
-  };
-  setG = value => {
-    this.setState({ g: value });
-  };
-  setB = value => {
-    this.setState({ b: value });
-  };
-  setA = value => {
-    const newValue = value * 0.00392157;
-    this.setState({ a: newValue });
+  setValues = (value, name) => {
+    if (name === 'a') {
+      const newValue = value * 0.00392157;
+      this.setState({ [name]: newValue });
+    } else {
+      this.setState({ [name]: value });
+    }
   };
   setVolume = value => {
     const newValue = value * 0.00392157;
@@ -91,39 +86,40 @@ class App extends Component {
       document.querySelector('.thumb-v').getBoundingClientRect().left -
         document.querySelector('.slider-v').getBoundingClientRect().left
     );
-    localStorage.setItem(
-      'r',
-      document.querySelector('.thumb-r').getBoundingClientRect().left -
-        document.querySelector('.slider-r').getBoundingClientRect().left
-    );
-    localStorage.setItem(
-      'g',
-      document.querySelector('.thumb-g').getBoundingClientRect().left -
-        document.querySelector('.slider-g').getBoundingClientRect().left
-    );
-    localStorage.setItem(
-      'b',
-      document.querySelector('.thumb-b').getBoundingClientRect().left -
-        document.querySelector('.slider-b').getBoundingClientRect().left
-    );
-    localStorage.setItem(
-      'a',
-      document.querySelector('.thumb-a').getBoundingClientRect().left -
-        document.querySelector('.slider-a').getBoundingClientRect().left
-    );
+    this.setKnobValues(this.state);
+    this.setSliderValues(this.state);
   };
-  roundControl80 = value => {
-    this.setState({ roundKnob80: value });
+  setKnobValues = value => {
+    const knobs = [
+      value.roundKnob80,
+      value.roundKnob100,
+      value.roundKnob120,
+      value.roundKnob200
+    ];
+    for (let i = 0; i < knobs.length; i++) {
+      localStorage.setItem(`n${i + 1}`, knobs[i]);
+    }
   };
-  roundControl100 = value => {
-    this.setState({ roundKnob100: value });
+  setSliderValues = value => {
+    const rgba = {
+      r: this.state.r,
+      g: this.state.g,
+      b: this.state.b,
+      a: this.state.a
+    };
+    const sliders = Object.keys(rgba);
+    for (let i = 0; i < sliders.length; i++) {
+      localStorage.setItem(
+        `${sliders[i]}`,
+        document.querySelector(`.thumb-${sliders[i]}`).getBoundingClientRect()
+          .left -
+          document
+            .querySelector(`.slider-${sliders[i]}`)
+            .getBoundingClientRect().left
+      );
+    }
   };
-  roundControl120 = value => {
-    this.setState({ roundKnob120: value });
-  };
-  roundControl200 = value => {
-    this.setState({ roundKnob200: value });
-  };
+
   render() {
     return (
       <div className="App">
@@ -131,7 +127,7 @@ class App extends Component {
           <div className="Slider-container">
             <span>Red</span>
             <Vcontroll
-              setPosition={this.setR}
+              setPosition={this.setValue}
               thumb="thumb-r"
               slider="slider-r"
               value={this.state.r}
@@ -144,7 +140,7 @@ class App extends Component {
           <div className="Slider-container">
             <span>Green</span>
             <Vcontroll
-              setPosition={this.setG}
+              setPosition={this.setValue}
               thumb="thumb-g"
               slider="slider-g"
               value={this.state.g}
@@ -157,7 +153,7 @@ class App extends Component {
           <div className="Slider-container">
             <span>Blue</span>
             <Vcontroll
-              setPosition={this.setB}
+              setPosition={this.setValue}
               thumb="thumb-b"
               slider="slider-b"
               value={this.state.b + 4}
@@ -170,7 +166,7 @@ class App extends Component {
           <div className="Slider-container">
             <span>Alpha</span>
             <Vcontroll
-              setPosition={this.setA}
+              setPosition={this.setValue}
               thumb="thumb-a"
               slider="slider-a"
               value={Math.floor(this.state.a * 100) * 2.55 + 4}
@@ -271,34 +267,42 @@ class App extends Component {
         <div style={{ display: 'inline-block', width: 45 }} />
         <div style={{ display: 'inline-block', margin: 5 }}>
           <RoundControl
-            roundControl={this.roundControl80}
+            roundControl={this.setValues}
             roundKnob={this.state.roundKnob80}
             control="round-control80"
             pointer="round-pointer80"
+            l="n1"
+            name="roundKnob80"
           />
         </div>
         <div style={{ display: 'inline-block', margin: 5 }}>
           <RoundControl
-            roundControl={this.roundControl100}
+            roundControl={this.setValues}
             roundKnob={this.state.roundKnob100}
             control="round-control100"
             pointer="round-pointer100"
+            l="n2"
+            name="roundKnob100"
           />
         </div>
         <div style={{ display: 'inline-block', margin: 5 }}>
           <RoundControl
-            roundControl={this.roundControl120}
+            roundControl={this.setValues}
             roundKnob={this.state.roundKnob120}
             control="round-control120"
             pointer="round-pointer120"
+            l="n3"
+            name="roundKnob120"
           />
         </div>
         <div style={{ display: 'inline-block', margin: 5 }}>
           <RoundControl
-            roundControl={this.roundControl200}
+            roundControl={this.setValues}
             roundKnob={this.state.roundKnob200}
             control="round-control200"
             pointer="round-pointer200"
+            l="n4"
+            name="roundKnob200"
           />
         </div>
         <div

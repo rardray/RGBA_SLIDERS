@@ -51,7 +51,7 @@ class Vcontroll extends React.Component {
       newLeft = rightEdge;
     }
     document.querySelector(`.${this.props.thumb}`).style.left = newLeft + 'px';
-    this.props.setPosition(newLeft);
+    this.props.setPosition(newLeft, this.props.ls);
   };
   handleMouseUp = () => {
     this.setState({ mouseDown: false });
