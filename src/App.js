@@ -121,61 +121,54 @@ class App extends Component {
   };
 
   render() {
+    const Vcontrol = [];
+    const rgbaSliders = {
+      r: this.state.r,
+      g: this.state.g,
+      b: this.state.b,
+      a: this.state.a
+    };
+    let keys = Object.keys(rgbaSliders);
+    const color = value => {
+      if (value === 'r') {
+        return `rgb(${this.state.r}, 0, 0)`;
+      } else if (value === 'g') {
+        return `rgb(0, ${this.state.g}, 0)`;
+      } else if (value === 'b') {
+        return `rgb(0, 0, ${this.state.b})`;
+      } else {
+        return `rgba(0,0,0,` + this.state.a + ')';
+      }
+    };
+    const displayName = ['Red', 'Green', 'Blue', 'Alpha'];
+    const alpha = Math.floor(this.state.a * 100) + '%';
+    for (let i = 0; i < keys.length; i++) {
+      Vcontrol[i] = (
+        <div>
+          <div className="Slider-container">
+            <span>{displayName[i]}</span>
+            <Vcontroll
+              setPosition={this.setValues}
+              thumb={'thumb-' + keys[i]}
+              slider={'slider-' + keys[i]}
+              color={color(keys[i])}
+              value={
+                keys[i] === 'a'
+                  ? Math.floor(this.state[keys[i]] * 100) * 2.55 + 4
+                  : this.state[keys[i]]
+              }
+              ls={keys[i]}
+            />
+            <span>{keys[i] === 'a' ? alpha : this.state[keys[i]]}</span>
+          </div>{' '}
+          <br />
+        </div>
+      );
+    }
     return (
       <div className="App">
         <div style={{ display: 'inline-block', verticalAlign: 'middle' }}>
-          <div className="Slider-container">
-            <span>Red</span>
-            <Vcontroll
-              setPosition={this.setValue}
-              thumb="thumb-r"
-              slider="slider-r"
-              value={this.state.r}
-              color={`rgb(${this.state.r}, 0, 0)`}
-              ls="r"
-            />
-            <span>{this.state.r}</span>
-          </div>
-          <br />
-          <div className="Slider-container">
-            <span>Green</span>
-            <Vcontroll
-              setPosition={this.setValue}
-              thumb="thumb-g"
-              slider="slider-g"
-              value={this.state.g}
-              color={`rgb(0, ${this.state.g}, 0)`}
-              ls="g"
-            />
-            <span>{this.state.g}</span>
-          </div>
-          <br />
-          <div className="Slider-container">
-            <span>Blue</span>
-            <Vcontroll
-              setPosition={this.setValue}
-              thumb="thumb-b"
-              slider="slider-b"
-              value={this.state.b + 4}
-              color={`rgb(0, 0, ${this.state.b})`}
-              ls="b"
-            />
-            <span>{this.state.b}</span>
-          </div>
-          <br />
-          <div className="Slider-container">
-            <span>Alpha</span>
-            <Vcontroll
-              setPosition={this.setValue}
-              thumb="thumb-a"
-              slider="slider-a"
-              value={Math.floor(this.state.a * 100) * 2.55 + 4}
-              color={`rgba(0,0,0,` + this.state.a + ')'}
-              ls="a"
-            />
-            <span>{Math.floor(this.state.a * 100)}%</span>
-          </div>
-          <br />
+          {Vcontrol}
           <br />
           <br /> <br />
           <div style={{ display: 'inline-block' }}>
