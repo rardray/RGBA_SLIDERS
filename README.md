@@ -2,7 +2,7 @@
 
 Author: Ryan Ardray
 
-[See the UI interface](https://quiet-beyond-57373.herokuapp.com)
+[See the UI interface](https://quiet-beyond-57373.herokuapp.com/)
 
 ## Front end creation of various control UI using Create React App and Css
 
