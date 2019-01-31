@@ -8,7 +8,7 @@ Author: Ryan Ardray
 
 The purpose of this exercise was to:
 
-- Utulize ES6 native functions such as boundingClient (rather than using JQuery) to obtain DOM values to:
+- Utilize ES6 native functions such as boundingClient (rather than using JQuery) to obtain DOM values to:
   - manipulate CSS values in real time
   - calculate useful values from relative coordinates to change values of other elements. 
     Values that could have practical applications (rgb values(255) volume as % as well as midi values and DBS representation).
