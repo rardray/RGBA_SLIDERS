@@ -1,7 +1,7 @@
 .slider-r {
   border-radius: 5px;
   background: #e0e0e0;
-  background: linear-gradient(left top, #e0e0e0, #eeeeee);
+  background: linear-gradient(to left, #e0e0e0, #eeeeee);
   width: 270px;
   height: 5px;
   margin: 5px;
@@ -21,7 +21,6 @@
 .slider-g {
   border-radius: 5px;
   background: #e0e0e0;
-  background: linear-gradient(left top, #e0e0e0, #eeeeee);
   width: 270px;
   height: 5px;
   margin: 5px;
@@ -41,7 +40,7 @@
 .slider-b {
   border-radius: 5px;
   background: #e0e0e0;
-  background: linear-gradient(left top, #e0e0e0, #eeeeee);
+  background: linear-gradient(to right, #e0e0e0, #eeeeee);
   width: 270px;
   height: 5px;
   margin: 5px;
@@ -60,7 +59,7 @@
 .slider-a {
   border-radius: 5px;
   background: #e0e0e0;
-  background: linear-gradient(left top, #e0e0e0, #eeeeee);
+  background: linear-gradient(to right, #e0e0e0, #eeeeee);
   width: 270px;
   height: 5px;
   margin: 5px;
@@ -79,7 +78,7 @@
 .slider-v {
   border-radius: 5px;
   background: #e0e0e0;
-  background: linear-gradient(left top, #e0e0e0, #eeeeee);
+  background: linear-gradient(to right, #e0e0e0, #eeeeee);
   box-shadow: inset 1px 1px 8px black;
   width: 270px;
   height: 5px;
@@ -100,7 +99,7 @@
 #sliders {
   border-radius: 5px;
   background: #e0e0e0;
-  background: linear-gradient(left top, #e0e0e0, #eeeeee);
+  background: linear-gradient(to right, #e0e0e0, #eeeeee);
   width: 270px;
   height: 5px;
   margin: 5px;

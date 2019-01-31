@@ -110,7 +110,7 @@
   padding: 8px;
   width: 68px;
   border-radius: 50%;
-  background: linear-gradient(left, lightgrey, slategrey);
+  background: linear-gradient(to right, lightgrey, slategrey);
   box-shadow: 3px 3px 6px black;
   display: inline-block;
   position: relative;

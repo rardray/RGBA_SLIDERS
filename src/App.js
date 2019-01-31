@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './StyleSheets/App.css';
 import Vcontroll from './Vcontroll';
+import './StyleSheets/Vcontroll.css';
 import Box from './Box';
 import VolumeIndicator from './Volume-indicator';
 import $ from 'jquery';
